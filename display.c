@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	va_list texts;
 
 	va_start(texts, format);
-	for (i = 0; i < nums; i++)
+	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
 			write(1, &format[i], 1);
@@ -23,7 +23,11 @@ int _printf(const char *format, ...)
 			if (format[i] == 's')
 			{
 				char *chars = va_arg(texts, char *);
-				write(1, chars, 1);
+				while (*chars != '\0')
+				{
+					write(1, chars, 1);
+					chars++;
+				}
 			}
 			else if (format[i] == 'c')
 			{
