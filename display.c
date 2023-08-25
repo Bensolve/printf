@@ -31,7 +31,7 @@ int _printf(const char *format, ...)
 
 			if (format[i] == '%')
 			{
-				write(1, &format, 1);
+				write(1, &format[i], 1);
 				nums++;
 			}
 			if (format[i] == 's')
@@ -53,13 +53,14 @@ int _printf(const char *format, ...)
 				write(1, &text, 1);
 				nums++;
 			}
+			/*
 			else if (format[i] == 'd')
 			{
 				int x = va_arg(texts, int);
 
 				write(1, &x, 1);
 				nums++;
-			}
+			}*/
 
 
 		}
