@@ -5,6 +5,8 @@
 #include <string.h>
 #include <unistd.h>
 
+#define BUFF_SIZE 1024
+
 int _printf(const char *format, ...);
 void pchar(char a, int *nums);
 void pstring(const char *str, int *nums);

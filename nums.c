@@ -7,22 +7,19 @@
  */
 void pint(int num, int *nums)
 {
-	char buffer[20];
+	char buffer[1024];
 	int pos, i;
+
 	if (num < 0)
 	{
 		pchar('-', nums);
 		num = -num;
 	}
 	pos = 0;
-	
-	do
-	{
+	do {
 		buffer[pos++] = '0' + (num % 10);
 		num /= 10;
-	}
-	while (num > 0);
-	
+	} while (num > 0);
 	for (i = pos - 1; i >= 0; i--)
 	{
 		pchar(buffer[i], nums);
