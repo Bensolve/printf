@@ -20,8 +20,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			write(1, &format[i], 1);
-			nums++;
+			pchar(format[i], &nums);
 		}
 		else
 		{
@@ -31,41 +30,22 @@ int _printf(const char *format, ...)
 
 			if (format[i] == '%')
 			{
-				write(1, &format[i], 1);
-				nums++;
+				pchar('%', &nums);
 			}
 			if (format[i] == 's')
 			{
 				char *chars = va_arg(texts, char *);
-				int lens = 0;
 
-				while (*(chars + lens) != '\0')
-				{
-					lens++;
-				}
-				write(1, chars, lens);
-				nums += lens;
+				pstring(chars, &nums);
 			}
 			else if (format[i] == 'c')
 			{
 				char text = va_arg(texts, int);
 
-				write(1, &text, 1);
-				nums++;
+				pchar(text, &nums);
 			}
-			/*
-			else if (format[i] == 'd')
-			{
-				int x = va_arg(texts, int);
-
-				write(1, &x, 1);
-				nums++;
-			}*/
-
-
 		}
 	}
 	va_end(texts);
 	return (nums);
 }
-		
