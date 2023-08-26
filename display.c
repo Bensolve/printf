@@ -32,7 +32,7 @@ int _printf(const char *format, ...)
 			{
 				pchar('%', &nums);
 			}
-			if (format[i] == 's')
+			else if (format[i] == 's')
 			{
 				char *chars = va_arg(texts, char *);
 

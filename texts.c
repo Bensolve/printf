@@ -9,7 +9,7 @@ void pstring(const char *str, int *nums)
 {
 	if (str == NULL)
 	{
-        	pstring("(null)", nums);
+		pstring("(null)", nums);
 	}
 	else
 	{
