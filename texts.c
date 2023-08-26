@@ -7,9 +7,16 @@
  */
 void pstring(const char *str, int *nums)
 {
-	while (*str)
+	if (str == NULL)
 	{
-		write(1, str++, 1);
-		(*nums)++;
+        	pstring("(null)", nums);
+	}
+	else
+	{
+		while (*str)
+		{
+			write(1, str++, 1);
+			(*nums)++;
+		}
 	}
 }
