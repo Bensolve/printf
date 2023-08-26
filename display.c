@@ -27,10 +27,11 @@ int _printf(const char *format, ...)
 			i++;
 			if (format[i] == '\0')
 				break;
-
-			if (format[i] == '%')
+			if (format[i] == 'c')
 			{
-				pchar('%', &nums);
+				char text = va_arg(texts, int);
+
+				pchar(text, &nums);
 			}
 			else if (format[i] == 's')
 			{
@@ -38,11 +39,14 @@ int _printf(const char *format, ...)
 
 				pstring(chars, &nums);
 			}
-			else if (format[i] == 'c')
+			else if (format[i] == '%')
 			{
-				char text = va_arg(texts, int);
-
-				pchar(text, &nums);
+				pchar('%', &nums);
+			}
+			else if (format[i] == 'd' || format[i] == 'i')
+			{
+				int x = va_arg(texts, int);
+				pint(x, &nums);
 			}
 		}
 	}
